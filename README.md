@@ -6,7 +6,7 @@ Um jogo educativo estilo Batalha Naval para aprender sobre elementos químicos.
 
 ## 🎮 Como Jogar
 
-- Acesse [https://batalha-naval-da-quimica.vercel.app/](https://batalha-naval-da-quimica.vercel.app/)
+- Acesse https://periodic-table-game.djairodantas.com
 
 1. O jogo tem 9 fases, cada uma com um tema diferente
 2. Em cada fase, você precisa encontrar 4 elementos químicos
