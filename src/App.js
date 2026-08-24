@@ -93,14 +93,12 @@ function App() {
     <div className="app-container">
       <h1 className="app-title">🧪 Periodic Table Quiz</h1>
       <div className="info-container">
+        <Dica texto={dicaAtual} />
         <Fase numero={fase} descricao={descricoesFases[fase]} />
         <Atual elementoAtual={elementoClicado} />
-        <Dica texto={dicaAtual} />
       </div>
-      
-      <div className="tabela-container">
-        <TabelaPeriodica onClick={handleClick} statusMap={status} />
-      </div>
+
+      <TabelaPeriodica onClick={handleClick} statusMap={status} />
     </div>
   );
 }

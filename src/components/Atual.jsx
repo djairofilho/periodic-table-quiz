@@ -1,12 +1,12 @@
 export default function Atual({ elementoAtual }) {
+    if (!elementoAtual) return null;
+
     return (
         <div className="atual-container">
-            {elementoAtual ? (
-                <div className="atual-content">
-                    <h3 className="atual-nome">Elemento: {elementoAtual.nome}</h3>
-                    <p className="atual-dica">Dica: {elementoAtual.dica}</p>
-                </div>
-            ) :<p></p>}
+            <div className="atual-content">
+                <h3 className="atual-nome">Elemento: {elementoAtual.nome}</h3>
+                <p className="atual-dica">Dica: {elementoAtual.dica}</p>
+            </div>
         </div>
     );
 }
