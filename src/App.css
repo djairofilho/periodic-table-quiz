@@ -334,6 +334,8 @@ summary:focus-visible,
   margin: 0 auto;
 }
 
+.period-row { display: contents; }
+
 .element-cell {
   position: relative;
   display: grid;

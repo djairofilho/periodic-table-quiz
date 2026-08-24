@@ -44,38 +44,42 @@ function PeriodicTable({ onAnswer, solvedElements, lastIncorrectSymbol, disabled
       <div className="table-scroll-cue">
         <div className="table-scroll" role="region" aria-label="Tabela periódica; deslize horizontalmente no modo retrato">
           <div className="periodic-table" role="grid" aria-rowcount="9" aria-colcount="18">
-            {elementos.map((element) => {
-              const isSolved = solvedSet.has(element.symbol);
-              const isIncorrect = lastIncorrectSymbol === element.symbol;
-              const state = isSolved ? "correto" : isIncorrect ? "incorreto" : "disponível";
+            {Array.from({ length: 9 }, (_, index) => index + 1).map((period) => (
+              <div className="period-row" role="row" key={period}>
+                {elementos.filter((element) => element.period === period).map((element) => {
+                  const isSolved = solvedSet.has(element.symbol);
+                  const isIncorrect = lastIncorrectSymbol === element.symbol;
+                  const state = isSolved ? "correto" : isIncorrect ? "incorreto" : "disponível";
 
-              return (
-                <button
-                  key={element.number}
-                  ref={(node) => {
-                    if (node) buttonRefs.current.set(element.symbol, node);
-                  }}
-                  type="button"
-                  role="gridcell"
-                  className={`element-cell category-${element.category}${isSolved ? " is-solved" : ""}${isIncorrect ? " is-incorrect" : ""}`}
-                  style={{ gridColumn: element.group, gridRow: element.period }}
-                  aria-label={`${element.name}, símbolo ${element.symbol}, número atômico ${element.number}, ${CATEGORY_LABELS[element.category]}, ${state}`}
-                  aria-disabled={disabled}
-                  tabIndex={activeSymbol === element.symbol ? 0 : -1}
-                  onFocus={() => setActiveSymbol(element.symbol)}
-                  onKeyDown={(event) => handleKeyDown(event, element)}
-                  onClick={() => !disabled && onAnswer(element.symbol)}
-                >
-                  <span className="atomic-number">{element.number}</span>
-                  <strong className="element-symbol">{element.symbol}</strong>
-                  {(isSolved || isIncorrect) && (
-                    <span className="element-state-icon" aria-hidden="true">
-                      {isSolved ? <Check /> : <X />}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
+                  return (
+                    <button
+                      key={element.number}
+                      ref={(node) => {
+                        if (node) buttonRefs.current.set(element.symbol, node);
+                      }}
+                      type="button"
+                      role="gridcell"
+                      className={`element-cell category-${element.category}${isSolved ? " is-solved" : ""}${isIncorrect ? " is-incorrect" : ""}`}
+                      style={{ gridColumn: element.group, gridRow: element.period }}
+                      aria-label={`${element.name}, símbolo ${element.symbol}, número atômico ${element.number}, ${CATEGORY_LABELS[element.category]}, ${state}`}
+                      aria-disabled={disabled}
+                      tabIndex={activeSymbol === element.symbol ? 0 : -1}
+                      onFocus={() => setActiveSymbol(element.symbol)}
+                      onKeyDown={(event) => handleKeyDown(event, element)}
+                      onClick={() => !disabled && onAnswer(element.symbol)}
+                    >
+                      <span className="atomic-number">{element.number}</span>
+                      <strong className="element-symbol">{element.symbol}</strong>
+                      {(isSolved || isIncorrect) && (
+                        <span className="element-state-icon" aria-hidden="true">
+                          {isSolved ? <Check /> : <X />}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
