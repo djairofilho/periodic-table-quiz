@@ -1,4 +1,4 @@
-# 🧪 Batalha Naval da Química
+# 🧪 Periodic Table Quiz
 
 Um jogo educativo estilo Batalha Naval para aprender sobre elementos químicos.
 
@@ -24,12 +24,12 @@ Um jogo educativo estilo Batalha Naval para aprender sobre elementos químicos.
 
 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/batalha-quimica.git
+git clone https://github.com/djairofilho/periodic-table-quiz.git
 ```
 
 2. Entre na pasta do projeto
 ```bash
-cd batalha-quimica
+cd periodic-table-quiz
 ```
 
 3. Instale as dependências

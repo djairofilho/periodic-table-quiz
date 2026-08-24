@@ -91,7 +91,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1 className="app-title">🧪 Batalha Naval da Química</h1>
+      <h1 className="app-title">🧪 Periodic Table Quiz</h1>
       <div className="info-container">
         <Fase numero={fase} descricao={descricoesFases[fase]} />
         <Atual elementoAtual={elementoClicado} />
