@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "source": "DESIGN.md",
+  "tokens": {
+    "color": {
+      "light": {
+        "background": "oklch(97% 0.012 260)",
+        "surface": "oklch(100% 0 0)",
+        "surfaceRaised": "oklch(95% 0.018 260)",
+        "text": "oklch(25% 0.055 260)",
+        "textMuted": "oklch(46% 0.04 260)",
+        "border": "oklch(84% 0.025 260)",
+        "accent": "oklch(55% 0.19 270)",
+        "focus": "oklch(55% 0.12 210)",
+        "success": "oklch(52% 0.14 155)",
+        "error": "oklch(55% 0.18 20)"
+      },
+      "dark": {
+        "background": "oklch(18% 0.035 255)",
+        "surface": "oklch(24% 0.045 255)",
+        "surfaceRaised": "oklch(30% 0.055 255)",
+        "text": "oklch(97% 0.01 255)",
+        "textMuted": "oklch(79% 0.035 255)",
+        "border": "oklch(45% 0.05 255)",
+        "accent": "oklch(71% 0.15 270)",
+        "focus": "oklch(80% 0.14 205)",
+        "success": "oklch(72% 0.15 155)",
+        "error": "oklch(72% 0.17 20)"
+      }
+    },
+    "spacing": [4, 8, 12, 16, 24, 32, 48, 64],
+    "radii": [8, 10, 12],
+    "typography": [11, 12, 14, 16, 20, 24, 32],
+    "motion": { "fast": 150, "standard": 180 },
+    "breakpoints": { "portraitMobile": 500, "tablet": 768, "desktop": 1024, "wide": 1440 }
+  }
+}
