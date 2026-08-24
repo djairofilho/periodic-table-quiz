@@ -1,15 +1,18 @@
 {
-  "short_name": "Periodic Quiz",
+  "short_name": "PT Quiz",
   "name": "Periodic Table Quiz",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#1e293b",
-  "background_color": "#0f172a"
+  "orientation": "any",
+  "theme_color": "#f5f7fc",
+  "background_color": "#f5f7fc",
+  "description": "Jogo educativo de reconhecimento dos elementos da tabela periódica."
 }
