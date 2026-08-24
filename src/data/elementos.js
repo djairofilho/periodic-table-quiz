@@ -1,4 +1,4 @@
-export const elementos = [
+const elementDefinitions = [
     { symbol: "H",  number: 1, group: 1, period: 1, name: "Hidrogênio" },
     { symbol: "He", number: 2, group: 18, period: 1, name: "Hélio" },
     { symbol: "Li", number: 3, group: 1, period: 2, name: "Lítio" },
@@ -118,3 +118,44 @@ export const elementos = [
     { symbol: "Ts", number: 117, group: 17, period: 7, name: "Tenesso" },
     { symbol: "Og", number: 118, group: 18, period: 7, name: "Oganessônio" }
 ];
+
+const categorySymbols = {
+  "alkali-metal": ["Li", "Na", "K", "Rb", "Cs", "Fr"],
+  "alkaline-earth-metal": ["Be", "Mg", "Ca", "Sr", "Ba", "Ra"],
+  lanthanide: ["La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu"],
+  actinide: ["Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr"],
+  "transition-metal": ["Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Cn"],
+  "post-transition-metal": ["Al", "Ga", "In", "Sn", "Tl", "Pb", "Bi", "Nh", "Fl", "Mc", "Lv"],
+  metalloid: ["B", "Si", "Ge", "As", "Sb", "Te", "Po"],
+  "reactive-nonmetal": ["H", "C", "N", "O", "P", "S", "Se"],
+  halogen: ["F", "Cl", "Br", "I", "At", "Ts"],
+  "noble-gas": ["He", "Ne", "Ar", "Kr", "Xe", "Rn", "Og"],
+};
+
+export const CATEGORY_LABELS = {
+  "alkali-metal": "Metal alcalino",
+  "alkaline-earth-metal": "Metal alcalino-terroso",
+  "transition-metal": "Metal de transição",
+  "post-transition-metal": "Metal pós-transição",
+  metalloid: "Metaloide",
+  "reactive-nonmetal": "Não metal reativo",
+  halogen: "Halogênio",
+  "noble-gas": "Gás nobre",
+  lanthanide: "Lantanídeo",
+  actinide: "Actinídeo",
+};
+
+const categoryBySymbol = Object.entries(categorySymbols).reduce(
+  (categories, [category, symbols]) => {
+    symbols.forEach((symbol) => {
+      categories[symbol] = category;
+    });
+    return categories;
+  },
+  {},
+);
+
+export const elementos = elementDefinitions.map((element) => ({
+  ...element,
+  category: categoryBySymbol[element.symbol],
+}));
